@@ -1,0 +1,7 @@
+/* Style for list in dashboard panel
+ */
+
+#u3a-dashboard-custom-panel ul {
+    list-style: disc;
+    margin-left: 1.5rem;
+}
