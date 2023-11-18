@@ -1,6 +1,6 @@
 === u3a-siteworks-dashboard ===
 Requires at least: 5.9
-Tested up to: 6.3
+Tested up to: 6.4
 Stable tag: 5.9
 Requires PHP: 7.3
 License: GPLv2 or later
@@ -22,6 +22,9 @@ For more information please refer to the [SiteWorks website](https://siteworks.u
 Please refer to the documentation on the [SiteWorks website](https://siteworks.u3a.org.uk/u3a-siteworks-training/)
 
 == Changelog ==
+= 1.0.0 =
+* First production code release
+* Tested up to WordPress 6.4
 = 0.1.99 =
 * Add link to Help Guide to SiteWorks dashboard panel
 = 0.1.98 =
