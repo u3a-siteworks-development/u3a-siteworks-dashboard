@@ -3,7 +3,7 @@
 Plugin Name: u3a SiteWorks Dashboard
 Plugin URI: https://u3awpdev.org.uk/
 Description: Provides a customised dashboard for users below 'administrator'
-Version: 1.0.0
+Version: 1.1.0
 Author: u3a SiteWorks team
 Author URI: https://siteworks.u3a.org.uk/
 Plugin URI: https://siteworks.u3a.org.uk/
@@ -15,7 +15,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define ('SW_DASHBOARD_VERSION', '1.0.0');  // Set to current plugin version number
+define ('SW_DASHBOARD_VERSION', '1.1.0');  // Set to current plugin version number
 
 // Plugin only relevant on admin interface pages.
 if (!is_admin()) return;
