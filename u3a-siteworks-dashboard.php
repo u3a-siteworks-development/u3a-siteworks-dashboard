@@ -3,34 +3,42 @@
 Plugin Name: u3a SiteWorks Dashboard
 Plugin URI: https://u3awpdev.org.uk/
 Description: Provides a customised dashboard for users below 'administrator'
-Version: 1.1.0
+Version: 1.2.0
 Author: u3a SiteWorks team
 Author URI: https://siteworks.u3a.org.uk/
 Plugin URI: https://siteworks.u3a.org.uk/
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Requires Plugins: u3a-siteworks-configuration
 */
 
 if (!defined('ABSPATH')) {
     exit;
 }
 
-define ('SW_DASHBOARD_VERSION', '1.1.0');  // Set to current plugin version number
+define ('SW_DASHBOARD_VERSION', '1.2.0');  // Set to current plugin version number
 
 // Plugin only relevant on admin interface pages.
 if (!is_admin()) return;
 
-// Use the plugin update service on SiteWorks update server
+// Use the plugin update service provided in the Configuration plugin
 
-require 'inc/plugin-update-checker/plugin-update-checker.php';
-
-use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
-
-$u3aMmUpdateChecker = PucFactory::buildUpdateChecker(
-    'https://siteworks.u3a.org.uk/wp-update-server/?action=get_metadata&slug=u3a-siteworks-dashboard', //Metadata URL
-    __FILE__, //Full path to the main plugin file or functions.php.
-    'u3a-siteworks-dashboard'
+add_action(
+    'plugins_loaded',
+    function () {
+        if (function_exists('u3a_plugin_update_setup')) {
+            u3a_plugin_update_setup('u3a-siteworks-dashboard', __FILE__);
+        } else {
+            add_action(
+                'admin_notices',
+                function () {
+                    print '<div class="error"><p>SiteWorks Dashboard plugin unable to check for updates as the SiteWorks Configuration plugin is not active.</p></div>';
+                }
+            );
+        }
+    }
 );
+
 
 // HTML tags allowed in custom dashboard panel
 
